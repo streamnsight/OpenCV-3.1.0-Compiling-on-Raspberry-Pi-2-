@@ -20,6 +20,11 @@ sudo apt-get install -y cmake-curses-gui
 
 # JPEG, TIFF, JPEG2000, PNG
 sudo apt-get install -y libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
+	
+# OpenEXR is a high dynamic-range (HDR) image file format
+# without this there seem to be an error loading cv2 in python
+sudo apt-get install -y openexr
+
 
 # GUI Framework:
 
