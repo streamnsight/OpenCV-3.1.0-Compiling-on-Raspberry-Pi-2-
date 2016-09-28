@@ -125,13 +125,14 @@ takes about 3.5 to 4 hours
 
 	$ sudo make -j3 (I prefer -j3, because it doesn't use all the cores so it keeps the RasPi cool enough)
 	
-	# If any errors occurs and the process fails to continue, execute
+If any errors occurs and the process fails to continue, execute
 	
 	$ sudo make clean
 	
-	# Sometimes using multicores can cause problems, so if you face any problems just execute 
-	# $ sudo make (withou the -jN), 
-	# keep in mind that without multi-processor, it will take much longer (i.e. ~7-8h) 
+Sometimes using multicores can cause problems, so if you face any problems just execute 
+	
+	$ sudo make 
+(without the -jN), keep in mind that without multi-processor, it will take much longer (i.e. ~7-8h) 
 
 # Install:
 installing the build
