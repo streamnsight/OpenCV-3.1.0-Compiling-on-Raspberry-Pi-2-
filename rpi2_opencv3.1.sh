@@ -102,13 +102,13 @@ sudo pip install numpy
 #cd ~
 wget -O opencv.zip https://github.com/opencv/opencv/archive/3.1.0.zip
 unzip opencv.zip
-rm -rf opencv.zip
+rm opencv.zip
 
 # Contrib Libraries (Non-free Modules)
 
 wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.1.0.zip
 unzip opencv_contrib.zip
-rm -rf opencv_contrib.zip
+rm opencv_contrib.zip
 
 # Create MAKEFILE:
 # preparing the build

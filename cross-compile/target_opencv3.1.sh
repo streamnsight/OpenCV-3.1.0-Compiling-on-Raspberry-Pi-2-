@@ -14,9 +14,10 @@
 sudo apt-get install -y build-essential cmake pkg-config
 
 # ccmake curses (make our life easier to select options for CMAKE)
-sudo apt-get install -y cmake-curses-gui
+# not needed if we don't compile on target
+# sudo apt-get install -y cmake-curses-gui
 
-# Build libjpeg-turbo
+# Build libjpeg-turbo (optional)
 wget http://sourceforge.net/projects/libjpeg-turbo/files/1.3.0/libjpeg-turbo-1.3.0.tar.gz
 tar xzvf libjpeg-turbo-1.3.0.tar.gz
 pushd libjpeg-turbo-1.3.0
@@ -112,50 +113,52 @@ sudo pip install numpy
 # jdk, ant for java support (optional)
 #sudo apt-get install -y default-jdk ant
 
+# The rest is not needed when cross-compiling
+
 # Get OpenCV source and contrib:
 # Download OpenCV 3.1.0 and unpack it
 
 #cd ~
-wget -O opencv.zip https://github.com/opencv/opencv/archive/3.1.0.zip
-unzip opencv.zip
-rm opencv.zip
-
-# Contrib Libraries (Non-free Modules)
-
-wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.1.0.zip
-unzip opencv_contrib.zip
-rm opencv_contrib.zip
-
-# Create MAKEFILE:
-# preparing the build
-
-#cd ~/opencv-3.1.0/
-mkdir build
-
-pushd build
-cmake -D CMAKE_BUILD_TYPE=RELEASE \
-	-D CMAKE_INSTALL_PREFIX=/usr/local \
-	-D INSTALL_C_EXAMPLES=OFF \
-	-D INSTALL_PYTHON_EXAMPLES=ON \
-	-D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.1.0/modules \
-	-D BUILD_EXAMPLES=ON ../opencv-3.1.0
-
-# Build:
-# takes about 3.5 to 4 hours
-
-#sudo make -j3
-
-# If any errors occurs and the process fails to continue, execute
-
-sudo make 
-# (without the -jN), keep in mind that without multi-processor, it will take much longer (i.e. ~7-8h)
-
-# Install:
-#installing the build
-
-# install
-sudo make install
-popd
+#wget -O opencv.zip https://github.com/opencv/opencv/archive/3.1.0.zip
+#unzip opencv.zip
+#rm -rf opencv.zip
+#
+## Contrib Libraries (Non-free Modules)
+#
+#wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.1.0.zip
+#unzip opencv_contrib.zip
+#rm -rf opencv_contrib.zip
+#
+## Create MAKEFILE:
+## preparing the build
+#
+##cd ~/opencv-3.1.0/
+#mkdir build
+#
+#pushd build
+#cmake -D CMAKE_BUILD_TYPE=RELEASE \
+#	-D CMAKE_INSTALL_PREFIX=/usr/local \
+#	-D INSTALL_C_EXAMPLES=OFF \
+#	-D INSTALL_PYTHON_EXAMPLES=ON \
+#	-D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.1.0/modules \
+#	-D BUILD_EXAMPLES=ON ../opencv-3.1.0
+#
+## Build:
+## takes about 3.5 to 4 hours
+#
+##sudo make -j3
+#
+## If any errors occurs and the process fails to continue, execute
+#
+#sudo make
+## (without the -jN), keep in mind that without multi-processor, it will take much longer (i.e. ~7-8h)
+#
+## Install:
+##installing the build
+#
+## install
+#sudo make install
+#popd
 
 # configure linker 
 
