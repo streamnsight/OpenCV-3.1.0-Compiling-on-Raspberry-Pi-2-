@@ -62,7 +62,7 @@ sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev
 sudo apt-get install -y libxvidcore-dev libx264-dev
 
 # Audio MP3, AAC encoding codecs (optional)
-#sudo apt-get install -y libmp3lame-dev libfaac-dev
+sudo apt-get install -y libmp3lame-dev libfaac-dev
 
 # gstreamer (optional) multimedia framework
 sudo apt-get install -y libgstreamer0.10-0-dbg libgstreamer0.10-0 libgstreamer0.10-dev 
@@ -72,6 +72,14 @@ sudo apt-get install -y libgstreamer0.10-0-dbg libgstreamer0.10-0 libgstreamer0.
 
 # Vorbis General Audio Compression Codec (optional, not recommended)
 #sudo apt-get install -y libvorbis-dev
+
+# fix ffmpeg header issues
+cd /usr/include
+mkdir ffmpeg
+cd ffmpeg
+sudo ln -sf ../libavcodec/*.h .
+sudo ln -sf ../libavformat/*.h .
+sudo ln -sf ../libswscale/*.h .
 
 # Speech CODECS	:
 # Speech CODECs
