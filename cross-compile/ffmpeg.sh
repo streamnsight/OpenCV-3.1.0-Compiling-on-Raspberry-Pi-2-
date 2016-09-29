@@ -17,5 +17,4 @@
 --enable-pic \
 --enable-x11grab
 
-make -j33
-make package
+sudo make C_FLAGS="-fPIC" -j33
